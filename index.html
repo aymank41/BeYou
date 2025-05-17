@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset en basis */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff9e6;
+      color: #2c3e50;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px 15px 60px;
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(15px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    header {
+      background: linear-gradient(135deg, #fce4ec 0%, #ffebee 100%);
+      width: 100%;
+      max-width: 900px;
+      border-radius: 30px;
+      margin: 40px auto 30px;
+      padding: 30px 40px;
+      box-shadow: 0 14px 45px rgba(233, 30, 99, 0.18);
+      text-align: center;
+      user-select: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    header:hover {
+      box-shadow: 0 20px 55px rgba(233, 30, 99, 0.3);
+    }
+
+    .logo {
+      width: 180px;
+      max-width: 80vw;
+      height: auto;
+      border-radius: 28px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+      transition: transform 0.35s ease;
+      cursor: pointer;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+    }
+
+    .logo:hover {
+      transform: scale(1.07) rotate(2deg);
+    }
+
+    h1 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.07);
+      user-select: text;
+      letter-spacing: 0.07em;
+    }
+
+    .pink {
+      color: #e91e63;
+    }
+
+    .black {
+      color: #121212;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+      user-select: none;
+    }
+
+    .contact-info a {
+      background: #fff;
+      color: #e91e63;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 35px;
+      box-shadow: 0 7px 22px rgba(233, 30, 99, 0.25);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .contact-info a:hover {
+      background-color: #e91e63;
+      color: #fff;
+      box-shadow: 0 12px 38px rgba(233, 30, 99, 0.4);
+    }
+
+    main.gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .item {
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+      padding: 22px 20px 26px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .item:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 22px 50px rgba(233, 30, 99, 0.3);
+    }
+
+    .item img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+      transition: transform 0.4s ease, filter 0.4s ease;
+      object-fit: cover;
+      max-height: 220px;
+    }
+
+    .item:hover img {
+      transform: scale(1.07);
+      filter: brightness(1.07);
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #2c3e50;
+      letter-spacing: 0.05em;
+      user-select: text;
+      margin-top: auto;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 70px;
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+      font-size: 1rem;
+      color: #888;
+      user-select: none;
+      padding-bottom: 20px;
+    }
+
+    footer a {
+      color: #e91e63;
+      margin: 0 14px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ad1457;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.9rem;
+      }
+      .contact-info a {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
+      main.gallery {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 28px;
+      }
+      .item {
+        padding: 18px 16px 20px;
+      }
+      .item img {
+        max-height: 160px;
+      }
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img class="logo" src="https://lh3.googleusercontent.com/p/AF1QipM-vy7lK66_xDMryxoQ-NgfxcRaUzwY1q3E5g6L=s1360-w1360-h1020-rw" alt="Be You Logo" />
+    <h1><span class="pink">Be</span> <span class="black">You</span></h1>
+  </header>
+
+  <div class="contact-info">
+    <a href="mailto:beyouroermond@gmail.com" title="Email Us">✉️ Email</a>
+    <a href="https://instagram.com/beyouroermond" target="_blank" title="Instagram">@beyouroermond</a>
+    <a href="https://www.google.com/maps?q=Paredisstraat+11,+6041+JW+Roermond" target="_blank" title="Location">📍 Location</a>
+  </div>
+
+  <main class="gallery" role="list">
+    <article class="item" role="listitem" tabindex="0" aria-label="Product 1, prijs €12">
+      <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTHYpCQMLFezERIsWjVE36u9B9E-egajxQPIMTk22Xx7-sK1OYN" alt="Product 1" />
+      <div class="price">€12,00</div>
+    </article>
+
+    <article class="item" role="listitem" tabindex="0" aria-label="Product 2, prijs €15">
+      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQVFLpv4S7dm7rgzQsM_trfJ25FsazyiXTUm4QDZPyNS2JV64vB" alt="Product 2" />
+      <div class="price">€15,00</div>
+    </article>
+
+    <article class="item" role="listitem" tabindex="0" aria-label="Product 3, prijs €20">
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS8UwQXAbj1-z61g2rKDxKR-amR6K2QNDARozJ1wkON1M5vQmT9" alt="Product 3" />
+      <div class="price">€20,00</div>
+    </article>
+
+    <article class="item" role="listitem" tabindex="0" aria-label="Product 4, prijs €15">
+      <img src="https://media.s-bol.com/Bp7z0AO409wN/DvKJ5y/550x550.jpg" alt="Product 4" />
+      <div class="price">€15,00</div>
+    </article>
+
+    <article class="item" role="listitem" tabindex="0" aria-label="Product 5, prijs €15">
+      <img src="https://media.s-bol.com/BM0Nw76ZG9qQ/PN92GjA/168x168.jpg" alt="Product 5" />
+      <div class="price">€15,00</div>
+    </article>
+
+    <article class="item" role="listitem" tabindex="0" aria-label="Product 6, prijs €20">
+      <img src="https://www.senza-sieraden.nl/cdn/shop/files/A-226_567f12e1-d09b-43e7-90ff-0ea120d2c1d4.jpg?v=1718485869&width=2048" alt="Product 6" />
+      <div class="price">€20,00</div>
+    </article>
+  </main>
+
+  <footer>
+    &copy; 2025 Be You Roermond
+  </footer>
+
+</body>
+</html>
